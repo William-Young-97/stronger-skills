@@ -30,7 +30,7 @@ final class QuoteServiceTest extends TestCase
         Carbon::setTestNow('2025-01-02 00:00 Europe/London');
         $this->assertSame('Q2', $svc->forDate(now())['text']);
 
-        // Wrap after the end: Jan 4 -> index 0 (since we have 3 quotes)
+        // Testing rotation after the 3rd date
         Carbon::setTestNow('2025-01-04 09:00 Europe/London');
         $this->assertSame('Q1', $svc->forDate(now())['text']);
     }
